@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 447556657}
   - component: {fileID: 447556656}
   - component: {fileID: 447556658}
+  - component: {fileID: 447556659}
   m_Layer: 0
   m_Name: Player 3
   m_TagString: Untagged
@@ -221,7 +222,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8a9ebcf2fe3897143911a09fed14c4a4, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -366,6 +367,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.4, y: 3.92}
   m_EdgeRadius: 0
+--- !u!114 &447556659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447556653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fbc2bc0e548b94a8721fea26f3870e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPower: 450
+  MovementPower: 100
 --- !u!1 &459430763
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +502,7 @@ GameObject:
   - component: {fileID: 475995228}
   - component: {fileID: 475995227}
   - component: {fileID: 475995229}
+  - component: {fileID: 475995230}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -574,7 +590,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 578b9042b10d40f43895ce1956fca197, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -719,6 +735,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.4, y: 3.92}
   m_EdgeRadius: 0
+--- !u!114 &475995230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475995224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2a008b1ff1f3b44b68fb8802f6eb2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPower: 450
+  MovementPower: 100
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,8 +1191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36eb2e95f34337640b037348584e7442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 166.1
-  MovementPower: 78.5
+  jumpPower: 450
+  MovementPower: 100
 --- !u!1 &2057244772
 GameObject:
   m_ObjectHideFlags: 0

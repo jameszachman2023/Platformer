@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerThreeController : MonoBehaviour
 {
     public float jumpPower;
     public float MovementPower;
@@ -19,17 +19,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Keypad8))
         {
             rb.AddForce(transform.up * jumpPower);
 
         }
-        else if (Input.GetKeyDown(KeyCode.E))
-            {
-                rb.AddForce(transform.right * MovementPower);
+        else if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            rb.AddForce(transform.right * MovementPower);
 
-            }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             rb.AddForce(-transform.right * MovementPower);
 
