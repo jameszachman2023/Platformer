@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.up * jumpPower);
 
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.D))
             {
                 rb.AddForce(transform.right * MovementPower);
 
             }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.A))
         {
             rb.AddForce(-transform.right * MovementPower);
 
