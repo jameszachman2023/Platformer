@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerTwoController : MonoBehaviour
 {
     public float jumpPower;
-    public float MovementPower;
+    public float MovementSpeed;
 
     Rigidbody2D rb;
 
@@ -19,21 +19,32 @@ public class PlayerTwoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             rb.AddForce(transform.up * jumpPower);
 
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            rb.AddForce(transform.right * MovementPower);
+            rb.AddForce(transform.right * MovementSpeed);
 
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
-            rb.AddForce(-transform.right * MovementPower);
+            rb.AddForce(-transform.right * MovementSpeed);
+
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            rb.velocity = new Vector3(-MovementSpeed, 0, 0);
+
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            rb.velocity = new Vector3(MovementSpeed, 0, 0);
 
         }
 
     }
 }
+

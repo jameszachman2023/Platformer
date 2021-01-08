@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float jumpPower;
-    public float MovementPower;
+    public float MovementSpeed;
 
     Rigidbody2D rb;
 
@@ -24,14 +24,24 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.up * jumpPower);
 
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.E))
             {
-                rb.AddForce(transform.right * MovementPower);
+                rb.AddForce(transform.right * MovementSpeed);
 
             }
-        else if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            rb.AddForce(-transform.right * MovementPower);
+            rb.AddForce(-transform.right * MovementSpeed);
+
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            rb.velocity = new Vector3(-MovementSpeed, 0, 0);
+
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            rb.velocity = new Vector3(MovementSpeed, 0, 0);
 
         }
 
