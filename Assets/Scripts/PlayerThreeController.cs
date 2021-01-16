@@ -10,14 +10,15 @@ public class PlayerThreeController : MonoBehaviour
     public GameObject pika;
 
     Rigidbody2D rb;
-    
+
+    SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
         pika = gameObject;
-
     }
 
     // Update is called once per frame
@@ -28,35 +29,47 @@ public class PlayerThreeController : MonoBehaviour
             rb.AddForce(transform.up * jumpPower);
 
         }
+
         if (Input.GetKeyDown(KeyCode.Keypad8))
         {
             rb.AddForce(transform.up * jumpPower);
 
         }
-        if (Input.GetKey(KeyCode.Keypad5))
-        {
-            rb.AddForce(-transform.up * jumpPower);
-
-        }
+        
         if (Input.GetKey(KeyCode.Keypad9))
         {
             transform.RotateAround(pika.transform.position, Vector3.forward, -Time.deltaTime * 200);
 
         }
+
         if (Input.GetKey(KeyCode.Keypad7))
         {
             transform.RotateAround(pika.transform.position, Vector3.forward, Time.deltaTime * 200);
 
         }
-        if (Input.GetKey(KeyCode.Keypad4))
+
+        if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             rb.velocity = new Vector3(-MovementSpeed, 0, 0);
-
+            sr.flipX = false;
         }
-        if (Input.GetKey(KeyCode.Keypad6))
+
+        if (Input.GetKeyDown(KeyCode.Keypad6))
         {
             rb.velocity = new Vector3(MovementSpeed, 0, 0);
+            sr.flipX = true;
+        }
 
+        if (Input.GetKeyUp(KeyCode.Keypad4))
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            
+        }
+
+        if (Input.GetKeyUp(KeyCode.Keypad6))
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            
         }
 
     }

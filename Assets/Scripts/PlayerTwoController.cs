@@ -9,11 +9,13 @@ public class PlayerTwoController : MonoBehaviour
 
     Rigidbody2D rb;
 
+    SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-
+        sr = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -37,12 +39,12 @@ public class PlayerTwoController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             rb.velocity = new Vector3(-MovementSpeed, 0, 0);
-
+            sr.flipX = false;
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
             rb.velocity = new Vector3(MovementSpeed, 0, 0);
-
+            sr.flipX = true;
         }
 
     }
