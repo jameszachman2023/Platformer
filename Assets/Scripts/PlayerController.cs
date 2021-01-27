@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour
 
     SpriteRenderer sr;
 
+    Vector3 startPos;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         yellowPika = gameObject;
+        startPos = transform.position;
 
     }
 
@@ -84,6 +87,11 @@ public class PlayerController : MonoBehaviour
 
             transform.SetParent(c.transform);
         }
+        if (c.gameObject.tag == "Respawn")
+        {
+            transform.position = startPos;
+            rb.velocity = Vector3.zero;
+        }
     }
     private void OnCollisionExit2D(Collision2D c)
     {
@@ -93,4 +101,5 @@ public class PlayerController : MonoBehaviour
             transform.SetParent(null);
         }
     }
+    
 }

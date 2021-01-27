@@ -7,15 +7,12 @@ public class GogglesPIckup : MonoBehaviour {
 private bool PickupAllowed;
 
     private SpriteRenderer rend;
-    private Sprite cloutedpikachu, yellowPikaSprite;
 
     // Start is called before the first frame update
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        yellowPikaSprite = Resources.Load<Sprite>("33-339194_pokemon-pikachu-red-sprite");
-        cloutedpikachu = Resources.Load<Sprite>("cloutedpikachu");
-        rend.sprite = yellowPikaSprite;
+        
         
     }
 
@@ -24,13 +21,7 @@ private bool PickupAllowed;
     {
         if (PickupAllowed && Input.GetKeyDown(KeyCode.E))
         {
-            //this.gameObject.GetComponent<SpriteRenderer>().sprite = cloutedpikachu;
-            if (rend.sprite == yellowPikaSprite)
-                rend.sprite = cloutedpikachu;
-            else if(rend.sprite == cloutedpikachu)
-                rend.sprite = yellowPikaSprite;
 
-            //Destroy(gameObject);
         }
             
 
@@ -51,9 +42,10 @@ private bool PickupAllowed;
             PickupAllowed = false;
         }
     }
-
+/*
     private void PickUp()
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = cloutedpikachu;
     }
+*/
 }
