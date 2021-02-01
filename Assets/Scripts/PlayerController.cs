@@ -5,14 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float jumpPower;
+
     public float MovementSpeed;
+
     public GameObject yellowPika;
+
+    public float jumpDetectOffset;
+
+    public LayerMask jumpableObjects; 
 
     Rigidbody2D rb;
 
     SpriteRenderer sr;
 
     Vector3 startPos;
+
+    BoxCollider2D bc;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +29,14 @@ public class PlayerController : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         yellowPika = gameObject;
         startPos = transform.position;
+        bc = gameObject.GetComponent<BoxCollider2D>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.W))
         {
             rb.AddForce(transform.up * jumpPower);
 
@@ -100,6 +109,13 @@ public class PlayerController : MonoBehaviour
 
             transform.SetParent(null);
         }
+    }
+    private bool IsGrounded()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, jumpDetectOffset, jumpableObjects);
+        Color rayColor = Color.red;
+        Debug.DrawRay(bc.bounds.center - new Vector3(bc.bounds.extents.x, bc.bounds.extents.y + jumpDetectOffset), Vector2.right * bc.bounds.size.x, rayColor);
+        return raycastHit.collider != null;
     }
     
 }
